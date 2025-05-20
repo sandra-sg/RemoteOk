@@ -32,8 +32,8 @@ public class FilterSteps {
     }
 
     @And("the user selects {string} from the dropdown")
-    public void the_user_selects_Developer_from_the_dropdown() {
-        homePage.selectFromSearchDropdown();
+    public void the_user_selects_Developer_from_the_dropdown(String option) {
+        homePage.selectFromSearchDropdown(option);
     }
 
 
@@ -54,12 +54,11 @@ public class FilterSteps {
 
         // Loop through each job listing element
         for (WebElement job : jobListings) {
-            // Get the text of the job listing (job title)
-            String jobText = job.getText();
-            System.out.println("Job Title: " + jobText);
+            String jobTitle = job.findElement(By.tagName("h2")).getText();
+            System.out.println("Job Title: " + jobTitle);            
 
             // Check if the job title contains the keyword (case-insensitive)
-            boolean containsKeyword = jobText.toLowerCase().contains(keyword.toLowerCase());
+            boolean containsKeyword = jobTitle.toLowerCase().contains(keyword.toLowerCase());
 
             // Print a message to the console based on the result
             if (containsKeyword) {
@@ -71,7 +70,7 @@ public class FilterSteps {
             // Perform a soft assertion to validate that the job title includes the keyword
             softAssert.assertTrue(
                     containsKeyword,
-                    "FAILED: Job does not contain the keyword '" + keyword + "': " + jobText
+                    "FAILED: Job does not contain the keyword '" + keyword + "': " + jobTitle
             );
         }
 
