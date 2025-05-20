@@ -4,7 +4,7 @@ This is a UI automation project built using Java, Selenium WebDriver, Cucumber (
 
 ## ✅ Features Covered
 
-- Filter jobs using a **keyword** (e.g., "QA", "SDET", "Java")
+- Filter jobs using a **keyword** (e.g., "Developer")
 - Validate that all **job titles** displayed contain the filter keyword
 - Organized using **Page Object Model (POM)**
 - Cucumber-based **BDD** with feature files
