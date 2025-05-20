@@ -8,7 +8,6 @@ This is a UI automation project built using Java, Selenium WebDriver, Cucumber (
 - Validate that all **job titles** displayed contain the filter keyword
 - Organized using **Page Object Model (POM)**
 - Cucumber-based **BDD** with feature files
-- Setup and teardown using **hooks**
 - Implemented using **IntelliJ** with **Maven**
 
 ---
