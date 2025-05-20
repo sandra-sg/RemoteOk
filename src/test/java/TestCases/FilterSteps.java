@@ -15,25 +15,25 @@ import java.util.List;
 
 public class FilterSteps {
     public static WebDriver driver;
-    homePage homePageObj;
+    homePage homePage1;
 
     @Given("the user is on the RemoteOK homepage")
     public void the_user_is_on_the_RemoteOK_homepage() {
         driver = new ChromeDriver();
         driver.manage().window().maximize();
-        homePageObj = new homePage (driver);
-        homePageObj.open();
+        homePage1 = new HomePage(driver);
+        homePage1.open();
     }
 
     @When("the user start typing {string} in the search bar")
     public void the_user_types_in_the_search_bar(String keyword) {
-        homePageObj.enterKeywordInSearchBar(keyword);
+        homePage1.enterKeywordInSearchBar(keyword);
 
     }
 
     @And("the user selects {string} from the dropdown")
     public void the_user_selects_Developer_from_the_dropdown() {
-        homePageObj.selectFromSearchDropdown();
+        homePage1.selectFromSearchDropdown();
     }
 
 
