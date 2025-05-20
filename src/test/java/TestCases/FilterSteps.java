@@ -55,7 +55,7 @@ public class FilterSteps {
         // Loop through each job listing element
         for (WebElement job : jobListings) {
             String jobTitle = job.findElement(By.tagName("h2")).getText();
-            System.out.println("Job Title: " + jobTitle);            
+            System.out.println("Job Title: " + jobTitle);
 
             // Check if the job title contains the keyword (case-insensitive)
             boolean containsKeyword = jobTitle.toLowerCase().contains(keyword.toLowerCase());
