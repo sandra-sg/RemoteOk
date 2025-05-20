@@ -8,32 +8,32 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.asserts.SoftAssert;
-import Pages.homePage;
+import Pages.HomePage;
 
 import java.time.Duration;
 import java.util.List;
 
 public class FilterSteps {
     public static WebDriver driver;
-    homePage homePage1;
+    HomePage homePage;
 
     @Given("the user is on the RemoteOK homepage")
     public void the_user_is_on_the_RemoteOK_homepage() {
         driver = new ChromeDriver();
         driver.manage().window().maximize();
-        homePage1 = new HomePage(driver);
-        homePage1.open();
+        homePage = new HomePage(driver);
+        homePage.open();
     }
 
     @When("the user start typing {string} in the search bar")
     public void the_user_types_in_the_search_bar(String keyword) {
-        homePage1.enterKeywordInSearchBar(keyword);
+        homePage.enterKeywordInSearchBar(keyword);
 
     }
 
     @And("the user selects {string} from the dropdown")
     public void the_user_selects_Developer_from_the_dropdown() {
-        homePage1.selectFromSearchDropdown();
+        homePage.selectFromSearchDropdown();
     }
 
 
@@ -45,7 +45,7 @@ public class FilterSteps {
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//td[@class='company position company_and_position']//a[@class='preventLink']")));
 
         // Get all job listings
-        List<WebElement> jobListings = homePage1.jobTitles();
+        List<WebElement> jobListings = homePage.jobTitles();
 
         System.out.println("Total jobs found: " + jobListings.size());
 
